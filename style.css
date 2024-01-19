@@ -7,16 +7,15 @@
     src: url(/fonts/Norse-Bold.otf);
   }
 body{
-    height: 100vh;
+    
     
     background-color: black;
 }
 .form{
     background-color: white;
     display: flex;
-    align-items: center;
+    margin: auto;
     width: 80%;
-    margin: 0 auto;
 }
 .sideImage {
     position: relative;
@@ -25,28 +24,29 @@ body{
 .west{
     display: block;
     width: 400px;
-    height: auto;
+    height: 100vh;
 
 }
 .odinLogo{
-    width: 100px;
+    width: 80px;
     height: 100px;
     
 }
 .imageTitle{
     display:flex;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
     color: white;
-    top: 25%; 
+    top: 30%; 
     left: 50%;
     width: 400px;
     padding: 20px 0;
     transform: translate(-50%, -50%); 
-    overflow: hidden;
+}
+.imageTitle p{
+    text-align: center;
     font-family: myFirstFont;
-    font-size: 4rem;
+    font-size: 5rem;
+    padding-top: 19px;
 }
