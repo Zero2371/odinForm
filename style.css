@@ -103,6 +103,14 @@ header{
     gap: 40px;
     padding: 25px 0;
 }
+.formInput div {
+    display: flex;
+    gap: 5px;
+}
+.formInput input{
+    display: flex;
+    flex-direction: column;
+}
 
 
 
