@@ -72,12 +72,12 @@ header{
 /* FORM */
 
 .main{
-    background-color: grey;
+    background-color: rgb(249,250,251);
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    gap: 50px;
+    gap: 20px;
 }
 .mainText{
     padding: 25px;
@@ -87,7 +87,7 @@ header{
 }
 .formInfo{
     background-color: white;
-    height: 250px;
+    height: 275px;
     font-family:Arial, Helvetica, sans-serif;
     padding: 25px;
 }
@@ -105,7 +105,7 @@ header{
 }
 .formInput div {
     display: flex;
-    gap: 5px;
+    padding: 0 10px;
 }
 .formInput div div {
     display: flex;
@@ -114,8 +114,32 @@ header{
 .formInput input{
     display: flex;
     flex-direction: column;
+    width: 200px;
+    
 }
 
+/* SIGN UP BTN*/
 
-
-/* rgb(249,250,251); */
+.signUpBtn{
+    display: flex;
+    padding: 25px;
+    gap: 30px;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+.btn{
+    background-color: rgb(89,109,72);
+    padding: 10px 40px;
+    border-radius: 7px;
+    border: none;
+    box-shadow: 5px 5px 10px black;
+    color: white;
+}
+.logIn{
+    font-size: 1rem;
+    font-weight: 520;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.logIn a{
+ color: rgb(89,109,72);
+}
