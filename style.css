@@ -11,11 +11,16 @@ body{
     
     background-color: black;
 }
+header{
+    padding: 0;
+    margin: 0;
+}
 .form{
     background-color: white;
     display: flex;
     margin: auto;
     width: 80%;
+    height: 100vh
 }
 .sideImage {
     position: relative;
@@ -49,4 +54,14 @@ body{
     font-family: myFirstFont;
     font-size: 5rem;
     padding-top: 19px;
+}
+.imageCredits{
+    position: absolute;
+    top: 95%;
+    left: 25%;
+    color: white;
+    padding: 0;
+}
+.imageCredits a {
+    color: white;
 }
