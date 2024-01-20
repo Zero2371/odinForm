@@ -31,16 +31,26 @@ header{
   }
 .west{
     display: block;
-    width: 400px;
+    width: 430px;
     height: 100vh;
 
 }
 .odinLogo{
     width: 80px;
     height: 100px;
-    
+    top: 25%;
 }
-.imageTitle{
+.banner{
+    background: rgba(0, 0, 0, 0.55);
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 200px;
+    padding: 20px 0px;
+
+    /*
     display:flex;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.6);
@@ -48,15 +58,18 @@ header{
     color: white;
     top: 30%; 
     left: 50%;
-    width: 400px;
+    width: 430px;
+    height: 75px;
     padding: 20px 0;
     transform: translate(-50%, -50%); 
+    */
 }
-.imageTitle p{
+.banner p{
     text-align: center;
     font-family: myFirstFont;
     font-size: 5rem;
-    padding-top: 19px;
+    padding-top: 10px;
+    color: white;
 }
 .imageCredits{
     position: absolute;
@@ -134,6 +147,7 @@ header{
     border: none;
     box-shadow: 5px 5px 10px black;
     color: white;
+    cursor: pointer;
 }
 .logIn{
     font-size: 1rem;
