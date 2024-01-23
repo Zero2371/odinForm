@@ -137,7 +137,7 @@ input:focus {
     padding: 5px 11px;
 }
 
-/* SIGN UP BTN*/
+/* SIGN UP BTN and ERROR */
 
 .signUpBtn{
     display: flex;
@@ -145,6 +145,11 @@ input:focus {
     gap: 30px;
     flex-direction: column;
     margin-bottom: 25px;
+}
+.errorPopUp{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
 }
 .btn{
     background-color: rgb(89,109,72);
@@ -154,6 +159,7 @@ input:focus {
     box-shadow: 5px 5px 10px black;
     color: white;
     cursor: pointer;
+    
 }
 .logIn{
     font-size: 1rem;
