@@ -32,11 +32,11 @@ form.addEventListener('submit', (e) => {
 */
 //confirms password
 
-const passwordsEqual = () => {
-  if(password.value === '' || confirmPassword === '') {
+function passwordsEqual() {
+  if (password.value === '' || confirmPassword === '') {
     password.arentElement.classList.add('.error');
-    error
-  }  
+    error;
+  }
 }
 
 function validateRequired(e) {

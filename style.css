@@ -113,7 +113,8 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 25px;
+    gap: 20px;
+    padding: 25px 0;
 }
 .formInput div {
     display: flex;
@@ -139,6 +140,9 @@ input:focus {
     margin-top: 1px;
     color: red;
     font-style: italic;
+  }
+  .error-message{
+    color: red;
   }
 
 /* SIGN UP BTN*/
