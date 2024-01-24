@@ -11,11 +11,11 @@ const firstName = document.querySelector('#firstName');
 const lastName = document.querySelector('#lastName');
 const email = document.querySelector('#email');
 const phone = document.querySelector('#phone');
-const pwd = document.querySelector('#pwd');
-const retypedPwd = document.querySelector('#pwd_retype');
-const thankyou = document.querySelector('.thankyou');
+const pwd = document.querySelector('#password');
+const retypedPwd = document.querySelector('#confirmPassword');
+const thankyou = document.querySelector('.thankYou');
 
-const submitBtn = document.querySelector('#submit-btn');
+const submitBtn = document.querySelector('button');
 
 let allFieldsValidity = new Array(6).fill(false);
 
