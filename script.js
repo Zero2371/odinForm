@@ -10,29 +10,8 @@ const error = document.getElementById('error');
 const submitBtn = document.getElementById('submit');
 
 let allFieldsValidity = new Array(6).fill(false);
-/*
-form.addEventListener('submit', (e) => {
-    let messages = [];
-    if (firstName.value === '' || firstName.value == null){
-        messages.push('first Name is required');
-    }
 
-    if (lastName.value === '' || firstName.value == null) {
-        messages.push('last Name is required');
-    }
-
-    if (email.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-
-    }
-    if (messages.length >0) {
-    e.preventDefault()
-    error.innerText = messages.join(', ')
-    }
-} )
-*/
-//confirms password
-
-function passwordsEqual() {
+function validatePassword() {
   if (password.value === '' || confirmPassword === '') {
     password.arentElement.classList.add('.error');
     error;
