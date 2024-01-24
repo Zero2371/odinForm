@@ -141,6 +141,9 @@ input:focus {
     color: red;
     font-style: italic;
   }
+  .error-message{
+    color: red;
+  }
 
 /* SIGN UP BTN*/
 
