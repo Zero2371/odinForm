@@ -6,15 +6,31 @@ const firstName = document.getElementById('firstName');
 const lastName = document.getElementById('lastName');
 const email = document.getElementById('email');
 const phoneNum = document.getElementById('phone');
-const error = document.getElementById('error');
+const errorMsgs = document.getElementById('error-msg');
 const submitBtn = document.getElementById('submit');
 
 let allFieldsValidity = new Array(6).fill(false);
 
-function validatePassword() {
+const validatePassword = () => {
   if (password.value === '' || confirmPassword === '') {
-    password.arentElement.classList.add('.error');
-    error;
+    password.parentElement.classList.add('error');
+    errorMsgs[4].textContent = 'This field is required';
+    return false;
+  }
+  // display an error message if passwords do not match.
+  else if (password.value !== confirmPassword.value) {
+    confirmPassword.parentElement.classList.add('error');
+    errorMsgs[4].textContent = 'Passwords do not match';
+    errorMsgs[5].textContent = 'Passwords do not match';
+    return false;
+  } 
+  else if (password.value === confirmPassword.value) {
+  // return styling to normal if passwords match
+    password.parentElement.classList.remove('error');
+    confirmPassword.parentElement.classList.remove('error');
+    errorMsgs[4].textContent = '';
+    errorMsgs[5].textContent = '';
+    return true
   }
 }
 
