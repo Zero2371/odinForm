@@ -107,8 +107,8 @@ const firstName = document.querySelector('#firstName');
 const lastName = document.querySelector('#lastName');
 const email = document.querySelector('#email');
 const phone = document.querySelector('#phone');
-const pwd = document.querySelector('#password');
-const retypedPwd = document.querySelector('#confirmPassword');
+const password = document.querySelector('#password');
+const confirmPassword = document.querySelector('#confirmPassword');
 
 
 const submitBtn = document.querySelector('button');
@@ -136,23 +136,23 @@ inputFields.forEach(el => {
 /*
   Password matching logic
 */
-const testPwdEquality = () => {
-  if (pwd.value === '' || retypedPwd === '') {
-    pwd.parentElement.classList.add('error');
+const validatePassword = () => {
+  if(password.value === '' || confirmPassword === '') {
+    password.parentElement.classList.add('error');
     errorMsgs[4].textContent = 'This field is required';
     return false;
   }
   // display an error message if passwords do not match.
-  else if (pwd.value !== retypedPwd.value) {
-    retypedPwd.parentElement.classList.add('error');
+  else if (password.value !== confirmPassword.value) {
+    confirmPassword.parentElement.classList.add('error');
     errorMsgs[4].textContent = 'Passwords do not match';
     errorMsgs[5].textContent = 'Passwords do not match';
     return false;
   } 
-  else if (pwd.value === retypedPwd.value) {
+  else if (password.value === confirmPassword.value) {
   // return styling to normal if passwords match
-    pwd.parentElement.classList.remove('error');
-    retypedPwd.parentElement.classList.remove('error');
+    password.parentElement.classList.remove('error');
+    confirmPassword.parentElement.classList.remove('error');
     errorMsgs[4].textContent = '';
     errorMsgs[5].textContent = '';
     return true
@@ -193,12 +193,12 @@ phone.addEventListener('change', (e) => {
   allFieldsValidity[3] = validateRequired(e);
 })
 
-pwd.addEventListener('change', (e) => {
-  allFieldsValidity[4] = testPwdEquality()
+password.addEventListener('change', (e) => {
+  allFieldsValidity[4] = validatePassword()
 });
 
-retypedPwd.addEventListener('change', (e) => {
-  allFieldsValidity[5] = testPwdEquality();
+confirmPassword.addEventListener('change', (e) => {
+  allFieldsValidity[5] = validatePassword();
 });
 
 /*
