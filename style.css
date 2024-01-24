@@ -113,8 +113,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 40px;
-    padding: 25px 0;
+    gap: 25px;
 }
 .formInput div {
     display: flex;

@@ -7,6 +7,7 @@ const lastName = document.getElementById('lastName');
 const email = document.getElementById('email');
 const phoneNum = document.getElementById('phone');
 const error = document.getElementById('error');
+const submitBtn = document.getElementById('submit');
 
 let allFieldsValidity = new Array(6).fill(false);
 /*
@@ -31,12 +32,11 @@ form.addEventListener('submit', (e) => {
 */
 //confirms password
 
-function validatePassword() {
-    if(password.value != confirmPassword.value) {
-        confirmPassword.setCustomValidity("passwords dont match");
-    } else {
-        confirmPassword.setCustomValidity('');
-    }
+const passwordsEqual = () => {
+  if(password.value === '' || confirmPassword === '') {
+    password.arentElement.classList.add('.error');
+    error
+  }  
 }
 
 function validateRequired(e) {
@@ -86,5 +86,11 @@ function validateRequired(e) {
     );
     return allValid;
   }
-password.onchange = validatePassword;
-confirmPassword.onkeyup = validatePassword;
+
+
+submitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (validateAllFields()){
+    myForm.reset();
+  }
+})
