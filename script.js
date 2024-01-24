@@ -1,41 +1,133 @@
 
-document.getElementById('form').addEventListener('submit', function(event) {
-  event.preventDefault();
+//document.getElementById('form').addEventListener('submit', function(event) {
+//  event.preventDefault();
 
-  const firstName = document.getElementById('firstName').value;
-  const lastName = document.getElementById('lastName').value;
-  const email = document.getElementById('email').value;
-  const phone = document.getElementById('phone').value;
-  const password = document.getElementById('password').value;
-  const confirmPassword = document.getElementById('confirmPassword').value;
+  
+const inputFields = document.querySelectorAll('input');
+const errorMsgs = document.querySelectorAll('.error-msg');
 
-  const firstNameError = document.getElementById('firstNameError');
-  const lastNameError = document.getElementById('lastNameError');
-  const emailError = document.getElementById('emailError');
-  const phoneError = document.getElementById('phoneError');
-  const passwordError = document.getElementById('passwordError');
-  const confirmPasswordError = document.getElementById('confirmPasswordError');
+const myForm = document.querySelector('form');
+const firstName = document.querySelector('#firstName');
+const lastName = document.querySelector('#lastName');
+const email = document.querySelector('#email');
+const phone = document.querySelector('#phone');
+const pwd = document.querySelector('#pwd');
+const retypedPwd = document.querySelector('#pwd_retype');
+const thankyou = document.querySelector('.thankyou');
 
-  // Validation logic for each field
-  // ...
+const submitBtn = document.querySelector('#submit-btn');
 
-  // Example for checking if firstName is empty
-  if (firstName.trim() === '') {
-    firstNameError.textContent = 'First Name cannot be blank';
-  } else {
-    firstNameError.textContent = '';
-    // Continue similar validation for other fields
-    // ...
+let allFieldsValidity = new Array(6).fill(false);
 
-    // Example for checking if passwords match
-    if (password !== confirmPassword) {
-      confirmPasswordError.textContent = 'Passwords do not match';
-    } else {
-      confirmPasswordError.textContent = '';
-      // Proceed with form submission or other actions
-    }
+/*
+  Focused input label animation
+*/
+const onFocus = (e) => {
+  e.target.parentElement.classList.add('focused');
+}
+
+const onBlur = (e) => {
+  if (e.target.value === '') {
+    e.target.parentElement.classList.remove('focused');
   }
+}
+
+inputFields.forEach(el => {
+  el.addEventListener('focus', onFocus)
+  el.addEventListener('blur', onBlur)
+})
+
+/*
+  Password matching logic
+*/
+const testPwdEquality = () => {
+  if (pwd.value === '' || retypedPwd === '') {
+    pwd.parentElement.classList.add('error');
+    errorMsgs[4].textContent = 'This field is required';
+    return false;
+  }
+  // display an error message if passwords do not match.
+  else if (pwd.value !== retypedPwd.value) {
+    retypedPwd.parentElement.classList.add('error');
+    errorMsgs[4].textContent = 'Passwords do not match';
+    errorMsgs[5].textContent = 'Passwords do not match';
+    return false;
+  } 
+  else if (pwd.value === retypedPwd.value) {
+  // return styling to normal if passwords match
+    pwd.parentElement.classList.remove('error');
+    retypedPwd.parentElement.classList.remove('error');
+    errorMsgs[4].textContent = '';
+    errorMsgs[5].textContent = '';
+    return true
+  }
+}
+
+/*
+  Required inputs logic
+*/
+function validateRequired(e) {
+  if (e.target.value === '') {
+    e.target.parentElement.classList.add('error');
+    e.target.nextElementSibling.textContent = 'This field is required';
+    return false;
+  } else if (e.target.value !== '') {
+    e.target.parentElement.classList.remove('error');
+    e.target.nextElementSibling.textContent = '';
+    return true 
+  }  
+}
+
+/*
+  Input event listeners
+*/
+firstName.addEventListener('change', (e) => {
+  allFieldsValidity[0] = validateRequired(e);
+})
+
+lastName.addEventListener('change', (e) => {
+  allFieldsValidity[1] = validateRequired(e);
+})
+
+email.addEventListener('change', (e) => {
+  allFieldsValidity[2] = validateRequired(e);
+})
+
+phone.addEventListener('change', (e) => {
+  allFieldsValidity[3] = validateRequired(e);
+})
+
+pwd.addEventListener('change', (e) => {
+  allFieldsValidity[4] = testPwdEquality()
 });
+
+retypedPwd.addEventListener('change', (e) => {
+  allFieldsValidity[5] = testPwdEquality();
+});
+
+/*
+  Form submit button logic
+*/
+function validateAllFields() {
+  inputFields.forEach(el => {
+    const event = new InputEvent('change');
+    el.dispatchEvent(event);
+  });
+  let allValid = allFieldsValidity.reduce(
+    (acc, curr) => curr && acc,
+    true
+  );
+  return allValid;
+}
+
+// Give user feedback if form submitted successfully
+submitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (validateAllFields()) {
+    thankyou.textContent = 'Thank you for signing up!';
+    myForm.reset();
+  };
+})
 
 
 
@@ -90,22 +182,22 @@ form.addEventListener('submit', (e) => {
 const validatePassword = () => {
     if (password.value === '' || confirmPassword === '') {
       password.parentElement.classList.add('errorMsg');
-      error[4].textContent = 'This field is required';
+      error[4].innerHTML = 'This field is required';
       return false;
     }
     // display an error message if passwords do not match.
     else if (password.value !== confirmPassword.value) {
       confirmPassword.parentElement.classList.add('errorMsg');
-      error[4].textContent = 'Passwords do not match';
-      error[5].textContent = 'Passwords do not match';
+      error[4].innerHTML = 'Passwords do not match';
+      error[5].innerHTML = 'Passwords do not match';
       return false;
     } 
     else if (password.value === confirmPassword.value) {
     // return styling to normal if passwords match
       password.parentElement.classList.remove('error');
       confirmPassword.parentElement.classList.remove('errorMsg');
-      error[4].textContent = '';
-      error[5].textContent = '';
+      error[4].innerHTML = '';
+      error[5].innerHTML = '';
       return true
     }
   }
@@ -123,11 +215,11 @@ function validatePassword() {
 function validateRequired(e) {
     if (e.target.value === '') {
       e.target.parentElement.classList.add('errorMsg');
-      e.target.nextElementSibling.textContent = 'This field is required';
+      e.target.nextElementSibling.innerHTML = 'This field is required';
       return false;
     } else if (e.target.value !== '') {
       e.target.parentElement.classList.remove('errorMsg');
-      e.target.nextElementSibling.textContent = '';
+      e.target.nextElementSibling.innerHTML = '';
       return true 
     }  
   }
