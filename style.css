@@ -124,7 +124,7 @@ header{
     display: flex;
     flex-direction: column;
 }
-.formInput input{
+input{
     display: flex;
     flex-direction: column;
     width: 200px;
@@ -135,9 +135,14 @@ input:focus {
     border: 1px solid rgb(0, 150, 255);
 	border-radius: 3px;
     padding: 5px 11px;
-}
+}  
+  .error{
+    margin-top: 1px;
+    color: red;
+    font-style: italic;
+  }
 
-/* SIGN UP BTN and ERROR */
+/* SIGN UP BTN*/
 
 .signUpBtn{
     display: flex;
@@ -145,11 +150,6 @@ input:focus {
     gap: 30px;
     flex-direction: column;
     margin-bottom: 25px;
-}
-.errorPopUp{
-    display: flex;
-    justify-content: space-between;
-    width: 500px;
 }
 .btn{
     background-color: rgb(89,109,72);
